@@ -1,0 +1,1 @@
+run with `java -jar target/currency-converter-1.0.jar 1.11 AUS AUS`
