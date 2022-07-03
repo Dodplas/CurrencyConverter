@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CurrencyConvertRequestValidatorTest {
+class RequestValidatorTest {
 
     @ParameterizedTest
     @CsvSource({
@@ -17,7 +17,7 @@ class CurrencyConvertRequestValidatorTest {
     void shouldValidateSourceAmountHasCorrectDecimalPlaces(String sourceAmountString) {
         final BigDecimal sourceAmount = new BigDecimal(sourceAmountString);
 
-        assertDoesNotThrow(() -> CurrencyConvertRequestValidator.validateDecimalPlaces(sourceAmount));
+        assertDoesNotThrow(() -> RequestValidator.validateDecimalPlaces(sourceAmount));
     }
 
     @ParameterizedTest
@@ -30,7 +30,7 @@ class CurrencyConvertRequestValidatorTest {
 
         final MalformedParametersException exception = assertThrows(MalformedParametersException.class,
                 () -> {
-                    CurrencyConvertRequestValidator.validateDecimalPlaces(sourceAmount);
+                    RequestValidator.validateDecimalPlaces(sourceAmount);
                 });
 
         assertEquals(String.format("Incorrect source amount: %s %s", sourceAmount, "value must be to 2 decimal places"), exception.getMessage());
@@ -41,7 +41,7 @@ class CurrencyConvertRequestValidatorTest {
             "GBP,AUS",
             "GBP,GBP"})
     void shouldValidateCurrencyCodesAreCorrect(String sourceCurrency, String targetCurrency) {
-        assertDoesNotThrow(() -> CurrencyConvertRequestValidator.validateCurrencyCodes(sourceCurrency, targetCurrency));
+        assertDoesNotThrow(() -> RequestValidator.validateCurrencyCodes(sourceCurrency, targetCurrency));
     }
 
     @ParameterizedTest
@@ -54,7 +54,7 @@ class CurrencyConvertRequestValidatorTest {
     void shouldValidateCurrencyCodesAreIncorrect(String sourceCurrency, String targetCurrency) {
         final MalformedParametersException exception = assertThrows(MalformedParametersException.class,
                 () -> {
-                    CurrencyConvertRequestValidator.validateCurrencyCodes(sourceCurrency, targetCurrency);
+                    RequestValidator.validateCurrencyCodes(sourceCurrency, targetCurrency);
                 });
 
         assertEquals("Input values incorrect example 1.22 GBP GBP", exception.getMessage());

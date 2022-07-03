@@ -3,7 +3,7 @@ package validators;
 import java.lang.reflect.MalformedParametersException;
 import java.math.BigDecimal;
 
-public class CurrencyConvertRequestValidator {
+public class RequestValidator {
 
     public static void validateDecimalPlaces(BigDecimal sourceAmount) {
         if (sourceAmount.scale() != 2) {

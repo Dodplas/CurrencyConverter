@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CurrencyConverterRequestTest {
+class RequestTest {
 
     @ParameterizedTest
     @CsvSource({
@@ -14,7 +14,7 @@ class CurrencyConverterRequestTest {
             "1.00, GBP, USD"})
     void shouldConvertParamsToObject(String sourceAmount, String sourceCurrencyCode, String targetCurrencyCode) {
 
-        final CurrencyConverterRequest convertedRequest = CurrencyConverterRequest.convertParamsToObject(new String[]{sourceAmount, sourceCurrencyCode, targetCurrencyCode});
+        final Request convertedRequest = Request.convertParamsToObject(new String[]{sourceAmount, sourceCurrencyCode, targetCurrencyCode});
 
         //TODO assert object values
         fail();
@@ -23,7 +23,7 @@ class CurrencyConverterRequestTest {
     @Test
     void shouldThrowExceptionWhenConvertingParamsToObject() {
 
-        final CurrencyConverterRequest convertedRequest = CurrencyConverterRequest.convertParamsToObject(new String[]{"SHOULDBENUMBER", "GBP", "USD"});
+        final Request convertedRequest = Request.convertParamsToObject(new String[]{"SHOULDBENUMBER", "GBP", "USD"});
 
         //TODO assert object values
         fail();
