@@ -93,6 +93,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/resource_loaders/CsvLoader.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/resourceloaders/CsvLoader.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/validators/CurrencyConvertRequestValidator.java">
           <value>
             <set />
@@ -128,6 +138,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/models/CurrencyCodeTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/test/java/models/CurrencyCodesTest.java">
           <value>
             <set />
@@ -144,6 +159,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/test/java/resourceLoaders/CsvLoaderTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/resource_loaders/CsvLoaderTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/resourceloaders/CsvLoaderTest.java">
           <value>
             <set />
           </value>

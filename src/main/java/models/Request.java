@@ -6,20 +6,29 @@ import lombok.Getter;
 import java.lang.reflect.MalformedParametersException;
 import java.math.BigDecimal;
 
+/**
+ * Holds the information about the request in progress
+ */
 @Builder(toBuilder = true)
 @Getter
 public class Request {
 
-    BigDecimal sourceAmount;
-    CurrencyCode sourceCurrencyCode;
+    private final BigDecimal sourceAmount;
+    private final CurrencyCode sourceCurrencyCode;
 
-    BigDecimal baseAmount;
+    // SourceAmount converted to GBP
+    private final BigDecimal baseAmount;
 
-    CurrencyCode targetCurrencyCode;
-    BigDecimal targetAmount;
+    private final CurrencyCode targetCurrencyCode;
+    private final BigDecimal targetAmount;
 
+    /**
+     * Converts initial user request parameters into a more easily usable object
+     * @param args parameters passed in by the user
+     * @return Returns the parameters values in the form of a Request object
+     */
     public static Request convertParamsToObject(String[] args) {
-        Request request = null;
+        Request request;
 
         try {
             request = Request.builder()

@@ -1,0 +1,6 @@
+models\CurrencyCodeTest.class
+converters\CurrencyConverterTest.class
+models\RequestTest.class
+resourceloaders\CsvLoaderTest.class
+actions\ConvertCurrencyTest.class
+validators\RequestValidatorTest.class

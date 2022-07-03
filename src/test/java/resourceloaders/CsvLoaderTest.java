@@ -1,7 +1,8 @@
-package resourceLoaders;
+package resourceloaders;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,5 +23,13 @@ class CsvLoaderTest {
         assertEquals("test name 2", currencyCodes.get(1).get(1));
         assertEquals("BBB", currencyCodes.get(1).get(2));
         assertEquals("3.45252354", currencyCodes.get(1).get(3));
+    }
+
+    @Test
+    void shouldThrowExceptionWhenFileNotFound() {
+        final FileNotFoundException exception = assertThrows(FileNotFoundException.class,
+                () -> CsvLoader.loadCsv("src/test/resources/does-not-exist.csv"));
+
+        assertEquals("File: src/test/resources/does-not-exist.csv not found", exception.getMessage());
     }
 }

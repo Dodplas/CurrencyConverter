@@ -7,14 +7,22 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Model to hold the currency code information
+ */
 @Builder(toBuilder = true)
 @Getter
 public class CurrencyCode {
-    String country;
-    String name;
-    String code;
-    BigDecimal rate;
+    private final String country;
+    private final String name;
+    private final String code;
+    private final BigDecimal rate;
 
+    /**
+     * converts the currency codes from it's initial format into a more useable object
+     * @param currencyCodes the currency codes as strings
+     * @return a list of CurrencyCode objects
+     */
     public static List<CurrencyCode> toCurrencyCodeList(List<List<String>> currencyCodes) {
         return currencyCodes.stream().map(currency -> new CurrencyCodeBuilder()
                                                               .country(currency.get(0))

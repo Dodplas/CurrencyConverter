@@ -29,9 +29,7 @@ class RequestValidatorTest {
         final BigDecimal sourceAmount = new BigDecimal(sourceAmountString);
 
         final MalformedParametersException exception = assertThrows(MalformedParametersException.class,
-                () -> {
-                    RequestValidator.validateDecimalPlaces(sourceAmount);
-                });
+                () -> RequestValidator.validateDecimalPlaces(sourceAmount));
 
         assertEquals(String.format("Incorrect source amount: %s %s", sourceAmount, "value must be to 2 decimal places"), exception.getMessage());
     }
@@ -40,23 +38,25 @@ class RequestValidatorTest {
     @CsvSource({
             "GBP,AUS",
             "GBP,GBP"})
-    void shouldValidateCurrencyCodesAreCorrect(String sourceCurrency, String targetCurrency) {
+    void shouldValidateCurrencyCodesAreValidFormat(String sourceCurrency, String targetCurrency) {
         assertDoesNotThrow(() -> RequestValidator.validateCurrencyCodes(sourceCurrency, targetCurrency));
     }
 
     @ParameterizedTest
     @CsvSource({
-            "NOTACURR,AUS",
-            "GBP,NOTACURR",
+            ",AUS",
+            "GBP,",
+            " ,AUS",
+            "GBP, ",
             "1.22,AUS",
             "GBP,1.33",
             "1.22,1.33"})
-    void shouldValidateCurrencyCodesAreIncorrect(String sourceCurrency, String targetCurrency) {
+    void shouldValidateCurrencyCodesAreInvalidFormat(String sourceCurrency, String targetCurrency) {
         final MalformedParametersException exception = assertThrows(MalformedParametersException.class,
-                () -> {
-                    RequestValidator.validateCurrencyCodes(sourceCurrency, targetCurrency);
-                });
+                () -> RequestValidator.validateCurrencyCodes(sourceCurrency, targetCurrency));
 
-        assertEquals("Input values incorrect example 1.22 GBP GBP", exception.getMessage());
+        assertEquals(String.format("Incorrect currency code/s: %s and %s value must be a valid currency code, e.g. AUD",
+                sourceCurrency, targetCurrency),
+                exception.getMessage());
     }
 }

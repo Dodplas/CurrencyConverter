@@ -1,0 +1,8 @@
+models\Request$RequestBuilder.class
+models\CurrencyCode$CurrencyCodeBuilder.class
+actions\ConvertCurrency.class
+converters\CurrencyConverter.class
+models\CurrencyCode.class
+resourceloaders\CsvLoader.class
+validators\RequestValidator.class
+models\Request.class

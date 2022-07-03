@@ -1,4 +1,6 @@
-C:\Users\Matt\IdeaProjects\currency-converter\src\main\java\actions\CurrencyConverter.java
-C:\Users\Matt\IdeaProjects\currency-converter\src\main\java\resourceLoaders\CsvLoader.java
-C:\Users\Matt\IdeaProjects\currency-converter\src\main\java\validators\CurrencyConvertRequestValidator.java
-C:\Users\Matt\IdeaProjects\currency-converter\src\main\java\models\CurrencyConverterRequest.java
+C:\Users\Matt\IdeaProjects\currency-converter\src\main\java\validators\RequestValidator.java
+C:\Users\Matt\IdeaProjects\currency-converter\src\main\java\models\Request.java
+C:\Users\Matt\IdeaProjects\currency-converter\src\main\java\resourceloaders\CsvLoader.java
+C:\Users\Matt\IdeaProjects\currency-converter\src\main\java\models\CurrencyCode.java
+C:\Users\Matt\IdeaProjects\currency-converter\src\main\java\actions\ConvertCurrency.java
+C:\Users\Matt\IdeaProjects\currency-converter\src\main\java\converters\CurrencyConverter.java
